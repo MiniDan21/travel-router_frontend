@@ -1,0 +1,96 @@
+/* css/biglogo-slide.css */
+
+/* Контейнер-блок на всю ширину; по высоте — ощутимая «полоса» */
+.bls {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr minmax(280px, 40vw);
+    align-items: center;
+    gap: 2rem;
+
+    width: 100%;
+    min-height: 60vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+
+    background: #fff7eb;
+    border-top: 1px solid #e8decf;
+    border-bottom: 1px solid #e8decf;
+}
+
+/* Правая колонка — логотип. Сам анимируемый элемент — wrap */
+.bls__logo-wrap {
+    justify-self: end;
+    width: min(40vw, 520px);
+    max-height: 70vh;
+    aspect-ratio: 1.6 / 1; /* под «лежачее» лого можно подстроить */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Исходное состояние: спрятано за правым краем */
+    transform: translateX(110%);
+    opacity: 0;
+    transition:
+        transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 600ms ease;
+}
+
+.bls__logo-wrap.is-visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.bls__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 12px 28px rgba(0,0,0,0.16));
+}
+
+/* Левая колонка — текстовое сопровождение */
+.bls__content {
+    align-self: center;
+    max-width: 900px;
+}
+
+.bls__title {
+    margin: 0 0 0.5rem 0;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    color: #17334E;
+    letter-spacing: 0.01em;
+}
+
+.bls__text {
+    margin: 0;
+    font-size: clamp(1rem, 1.6vw, 1.1rem);
+    line-height: 1.6;
+    color: #334155;
+}
+
+/* Мобильная адаптация: логотип ниже, всё по ширине */
+@media (max-width: 768px) {
+    .bls {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.25rem 1rem;
+        min-height: 70vh;
+    }
+
+    .bls__logo-wrap {
+        justify-self: end;
+        width: min(70vw, 420px);
+        max-height: 45vh;
+    }
+}
+
+/* Без анимаций, если пользователь их отключил */
+@media (prefers-reduced-motion: reduce) {
+    .bls__logo-wrap {
+        transition: none;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

@@ -1,0 +1,153 @@
+/* css/auth.css */
+
+/* Контейнер страницы авторизации */
+.auth {
+	width: 100%;
+	min-height: calc(100vh - 10vh); /* под вашим хедером 10vh */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+	box-sizing: border-box;
+	background: linear-gradient(180deg, #fff7eb 0%, #ffffff 100%);
+}
+
+/* Карточка формы */
+.auth__card {
+	width: 100%;
+	max-width: 560px;
+	background: #ffffff;
+	border: 1px solid #e8decf;
+	box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+	border-radius: 16px;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+/* Заголовки */
+.auth__title {
+	margin: 0 0 0.5rem 0;
+	font-size: 1.8rem;
+	line-height: 1.2;
+	color: #17334E;
+	letter-spacing: 0.01em;
+}
+.auth__subtitle {
+	margin: 0 0 1.25rem 0;
+	color: #334155;
+	line-height: 1.5;
+}
+
+/* Поля формы */
+.auth__form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.auth__field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.auth__label {
+	font-size: 0.95rem;
+	color: #17334E;
+}
+
+.auth__input-wrap {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.auth__input {
+	width: 100%;
+	border: 1px solid #d6d3ce;
+	border-radius: 10px;
+	padding: 0.75rem 0.9rem;
+	font-size: 1rem;
+	outline: none;
+	background: #fff;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.auth__input:focus {
+	border-color: #F0AB69;
+	box-shadow: 0 0 0 3px rgba(240,171,105,0.25);
+}
+.auth__input.is-error {
+	border-color: #e76e55;
+}
+
+.auth__input--password {
+	padding-right: 5.2rem; /* место под кнопку показать/скрыть */
+}
+
+.auth__toggle {
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	border: none;
+	background: #F0AB69;
+	color: #17334E;
+	border-radius: 8px;
+	padding: 0.4rem 0.6rem;
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+.auth__toggle:hover {
+	filter: brightness(0.95);
+}
+
+.auth__checkbox {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.95rem;
+	color: #334155;
+}
+
+.auth__error {
+	color: #b42318;
+	font-size: 0.9rem;
+}
+
+/* Кнопка отправки */
+.auth__submit {
+	border: none;
+	cursor: pointer;
+	padding: 0.9rem 1.2rem;
+	border-radius: 12px;
+	background: #17334E;
+	color: #fff;
+	font-weight: 700;
+	font-size: 1rem;
+}
+.auth__submit:hover {
+	filter: brightness(1.05);
+}
+
+/* Переключение на другую страницу */
+.auth__switch {
+	margin: 0.5rem 0 0 0;
+	color: #334155;
+}
+.auth__link {
+	color: #F0AB69;
+	text-decoration: none;
+}
+.auth__link:hover {
+	text-decoration: underline;
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+	.auth__card {
+		padding: 1.25rem;
+	}
+	.auth__title {
+		font-size: 1.6rem;
+	}
+}
